@@ -1,0 +1,10 @@
+.Header{
+    display: flex;
+    justify-content: left;
+    grid-area: header;
+    background-color: rgb(145, 69, 168);
+    border: 1px black solid;
+  }
+  .Header img{
+    width: 5%;
+  }

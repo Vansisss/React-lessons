@@ -1,0 +1,12 @@
+.NavBar{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    grid-area: nav;
+    background-color: rgb(190, 167, 212);
+    border: 1px black solid;
+    
+  }
+.item{
+  font-style: italic;
+}
