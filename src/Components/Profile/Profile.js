@@ -1,4 +1,5 @@
 import React from 'react';
+import MyPosts from './My Posts/MyPosts';
 import classes from'./Profile.module.css'
 const Profile=()=>{
    return(
@@ -15,11 +16,7 @@ const Profile=()=>{
                             </div>
                            
       </div>
-      <div className='stage'>Nasoidijpn
-asdfonaspdfnapsdfnpiasdnf
-aosidfpaosdnfpiansdfpnsadfasdf
-asdfasdfasdfasdfasdf
-asdfasdfasdfasdf</div>
+     <MyPosts/>
     </div>)
     }
     export default Profile;
