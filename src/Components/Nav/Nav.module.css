@@ -10,3 +10,6 @@
 .item{
   font-style: italic;
 }
+.item.activebutton{
+  font-style: normal;
+}
