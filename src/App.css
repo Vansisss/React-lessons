@@ -14,3 +14,15 @@
 
 
 
+.Content{
+  display: grid;
+  grid-template-columns: 30% 60%;
+  grid-template-rows: 20% 20%;
+
+  grid-area: cont;
+  background-color: rgb(255, 255, 255);
+  border: 1px black solid;
+}
+.Content img{
+  width: 20%;
+}

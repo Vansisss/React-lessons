@@ -6,10 +6,10 @@ const MyPosts =()=> {
       <div className='stage'>
         <textarea></textarea>
         <button>Add</button>
-      <Post/>
-      <Post/>
-      <Post/>
-      <Post/>
+      <Post mess='OLOLO' likesCounter='10'/>
+      <Post mess='hello world' likesCounter='16'/>
+      <Post mess='Hi i am SOSLO' likesCounter='12'/>
+      <Post mess='txtasdasdasdasdasdas'likesCounter=' 20'/>
       </div>
     )
     }
