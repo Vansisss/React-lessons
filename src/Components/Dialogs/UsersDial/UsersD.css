@@ -1,0 +1,13 @@
+.User{
+    width: 90%;
+    background-color: rgb(228, 201, 253);
+    margin: 0;
+    padding: 0%;
+}
+.User img{
+    width: 50px;
+}
+
+.User :hover {
+    background-color: rgb(40, 14, 65);
+}

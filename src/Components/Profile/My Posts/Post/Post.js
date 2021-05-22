@@ -4,8 +4,8 @@ const Post =(props)=> {
    return(
       <div className={classes.Post}>
         <img src='https://i.ytimg.com/vi/_b2n9WAv7wY/maxresdefault.jpg'></img>
-      {props.mess}
-      <span>Like{props.likesCounter}</span>
+      {props.post}
+      <span></span>
       </div>
     )
     }

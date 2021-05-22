@@ -1,8 +1,15 @@
 import React from 'react'
+import DialogMess from './DialogMess/DialogMess'
 import classes from'./Dialogs.module.css'
-const Dialogs=()=>{
+import UsersD from './UsersDial/UsersD'
+const Dialogs=(props)=>{
+   console.log(props)
    return(
-      <div>Dialogs</div>
+      <div className={classes.DialogsMain}>
+     
+         <UsersD users={props.users}/>
+         <DialogMess hren={props.messages} />
+         </div>
     )
     }
     export default Dialogs

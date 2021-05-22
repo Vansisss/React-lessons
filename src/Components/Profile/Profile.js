@@ -1,7 +1,7 @@
 import React from 'react';
 import MyPosts from './My Posts/MyPosts';
 import classes from'./Profile.module.css'
-const Profile=()=>{
+const Profile=(props)=>{
    return(
     
     <div className={classes.SelfInfo}>
@@ -16,7 +16,7 @@ const Profile=()=>{
                             </div>
                            
       
-     <MyPosts/>
+     <MyPosts posts={props.posts}/>
     </div>)
     }
     export default Profile;

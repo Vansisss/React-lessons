@@ -1,0 +1,6 @@
+.DialogsMain{
+    display: grid;
+    width: 100%;
+    grid-template-columns: 30% 60% ;
+    grid-gap: 10px;
+}

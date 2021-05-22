@@ -10,15 +10,20 @@ import News from './Components/News/News';
 
 
 
-const App=()=> {
+const App=(props)=> {
+  
+  let getProps = props
+  
+
   return ( 
+   
     <BrowserRouter>
     <div className="App">
      <Header/>
      <Nav/>
      <div className='Content'>
-     <Route path ='/profile' component ={Profile}/>
-     <Route path ='/dialogs' component ={Dialogs}/>
+     <Route path ='/profile'  render ={()=><Profile posts={getProps.posts}/>}/>
+     <Route path ='/dialogs' render ={()=><Dialogs messages={getProps.mesages} users={getProps.users}/>}/>
      <Route path ='/news' component ={News}/>
      </div>
     </div>
