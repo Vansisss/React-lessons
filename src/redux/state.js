@@ -14,9 +14,9 @@ const state ={
 
     Messages : [
         {id:1,author:'Vasya',message:"aaaasdasfga"},
-        {id:2,author:'Petya',message:"sdfbhdfnasdg"},
+        {id:2,author:'Ya',message:"sdfbhdfnasdg"},
         {id:3,author:'Yasha',message:"aandfgndgnsdf"},
-        {id:4,author:'Lava',message:"asdfhsdfgsdfg"}
+        {id:4,author:'Ya',message:"asdfhsdfgsdfg"}
       ],
       
     Users:[

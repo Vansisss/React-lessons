@@ -13,3 +13,10 @@
 .item.activebutton{
   font-style: normal;
 }
+.friends{
+  border-radius: 10px;
+}
+.friends img{
+  width: 20px;
+
+}

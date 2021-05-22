@@ -20,7 +20,7 @@ const App=(props)=> {
     <BrowserRouter>
     <div className="App">
      <Header/>
-     <Nav/>
+     <Nav friends={getProps.users}/>
      <div className='Content'>
      <Route path ='/profile'  render ={()=><Profile posts={getProps.posts}/>}/>
      <Route path ='/dialogs' render ={()=><Dialogs messages={getProps.mesages} users={getProps.users}/>}/>

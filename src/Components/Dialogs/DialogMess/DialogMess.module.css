@@ -1,3 +1,8 @@
-.Message{
+.mymess{
+    text-align: left;
     background-color: rgb(128, 106, 150);
+}
+.notmymess{
+    text-align: right;
+    background-color: rgb(232, 218, 245);
 }
