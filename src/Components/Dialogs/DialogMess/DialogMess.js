@@ -2,7 +2,10 @@ import React from 'react'
 import classes from'./DialogMess.module.css'
 import Message from './Message'
 
-
+let MesRef=React.createRef()
+let addMess=()=>{
+  alert(MesRef.current.value)
+}
 
 const DialogMess=(props)=>{
 
@@ -13,6 +16,8 @@ const DialogMess=(props)=>{
       <div className='DialogMess'>
          Messages
        {MessArrayMapped}
+       <textarea ref={MesRef}></textarea>
+       <button onClick={addMess}>Add</button>
          </div>
     )
     }

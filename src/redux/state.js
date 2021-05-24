@@ -1,5 +1,8 @@
+import { renderEntireTree } from "../render/render";
+
 const state ={
     ProfileState :{
+      newPost:"It samur",
     posts : [
             {id:1,post:"aaaaaaaaaaaaaa"},
             {id:2,post:"sbbbbbbbbbbbbbbbbb"},
@@ -25,7 +28,24 @@ const state ={
         {id:3,name:'Yasha'},
         {id:4,name:'Lava'}
       ] }
+
+ 
     }
+    export let addPosts = ()=>{
+        let newpost ={
+            id:5,
+            post:state.ProfileState.newPost
+                 }
+                 state.ProfileState.posts.push(newpost);
+                 state.ProfileState.newPost=''
+                renderEntireTree(state)
+            }
+    export let addChanges = (postText)=>{
+       
+                 state.ProfileState.newPost=postText
+                 
+                renderEntireTree(state)
+            }
 
 
 export default state

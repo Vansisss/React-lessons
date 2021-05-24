@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 import User from '../Dialogs/UsersDial/User';
 import classes from './Nav.module.css'
     const Nav=(props)=>{
-        console.log(props)
+       
         let UserNav=props.friends.map(friend=> <User name={friend.name}/>)
         return(<div className={classes.NavBar}>
     <NavLink className={classes.item } activeClassName={classes.activebutton} to='/profile'>Profile</NavLink>  

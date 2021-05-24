@@ -22,7 +22,7 @@ const App=(props)=> {
      <Header/>
      <Nav friends={getProps.users}/>
      <div className='Content'>
-     <Route path ='/profile'  render ={()=><Profile posts={getProps.posts}/>}/>
+     <Route path ='/profile'  render ={()=><Profile addChanges={getProps.addChanges}newPost={getProps.newPost} posts={getProps.posts} addPosts={props.addPosts}/>}/>
      <Route path ='/dialogs' render ={()=><Dialogs messages={getProps.mesages} users={getProps.users}/>}/>
      <Route path ='/news' component ={News}/>
      </div>

@@ -1,6 +1,8 @@
 import React from 'react';
 import MyPosts from './My Posts/MyPosts';
 import classes from'./Profile.module.css'
+
+
 const Profile=(props)=>{
    return(
     
@@ -16,7 +18,7 @@ const Profile=(props)=>{
                             </div>
                            
       
-     <MyPosts posts={props.posts}/>
+     <MyPosts addChanges={props.addChanges} newPost={props.newPost} posts={props.posts} addPosts={props.addPosts}/>
     </div>)
     }
     export default Profile;
