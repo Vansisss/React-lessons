@@ -5,14 +5,16 @@ import Post from './Post/Post';
 
 const MyPosts =(props)=> {
   let newRef = React.createRef();
+console.log(props)
 let addPost=()=>{
+  
   let text=newRef.current.value
-   props.addPosts(text)
+   props.addPosts({type:"addPosts"})
    
 }
   let postsArray = props.posts.map(mess=> <Post post={mess.post} /> )
   let onpostChange =()=>{
-    props.addChanges(newRef.current.value)
+    props.addChanges({type:'addChanges', postText:newRef.current.value})
     
 
   }

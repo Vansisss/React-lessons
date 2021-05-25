@@ -4,6 +4,7 @@ import classes from'./Profile.module.css'
 
 
 const Profile=(props)=>{
+  console.log(props)
    return(
     
     <div className={classes.SelfInfo}>
