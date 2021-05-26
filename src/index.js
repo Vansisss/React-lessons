@@ -12,7 +12,7 @@ let renderEntireTree=()=>{
     ReactDOM.render(
       <React.StrictMode>
         
-        <App addChanges={store.dispatch} addPosts={store.dispatch} posts={store._state.ProfileState.posts} newPost={store._state.ProfileState.newPost} users={store._state.DialogState.Users} mesages={store._state.DialogState.Messages} />
+        <App  messageTxT={store._state.DialogState.MessageTxT} dispatch={store.dispatch} posts={store._state.ProfileState.posts} newPost={store._state.ProfileState.newPost} users={store._state.DialogState.Users} mesages={store._state.DialogState.Messages} />
       
        
       </React.StrictMode>,

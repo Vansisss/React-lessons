@@ -1,3 +1,6 @@
+import DialogReduser from "./dialog_reduser"
+import ProfileReduser from "./profile_reducer"
+
 let store={
  subscriber(){console.log('aa')},
 
@@ -17,7 +20,7 @@ let store={
       },
      
       DialogState : {
-     
+        MessageTxT:"Zdarova Otec",
   
       Messages : [
           {id:1,author:'Vasya',message:"aaaasdasfga"},
@@ -37,27 +40,33 @@ let store={
       },
 
   dispatch(action){
-    if(action.type==='addPosts'){
-      let newpost ={
-        id:5,
-        post:store._state.ProfileState.newPost
-             }
-             store._state.ProfileState.posts.push(newpost)
-             store._state.ProfileState.newPost=''
-            store.subscriber()
-    }
-    else if(action.type==='addChanges'){
-      
-      store._state.ProfileState.newPost=action.postText
-                   
-      store.subscriber()
-    }
+    store._state.ProfileState = ProfileReduser(store._state.ProfileState,action)
+    store._state.DialogState = DialogReduser(store._state.DialogState,action)
+    store.subscriber()
   },
 
-subscribe(observer){ this.subscriber=observer}
+subscribe(observer){ this.subscriber=observer},
   
+
 }
 
 
 
 export default store
+
+
+//if(action.type==='addPosts'){
+  //let newpost ={
+    //id:5,
+    //post:store._state.ProfileState.newPost
+      //   }
+        // store._state.ProfileState.posts.push(newpost)
+         //store._state.ProfileState.newPost=''
+        //store.subscriber()
+//}
+//else if(action.type==='addChanges'){
+  
+ // store._state.ProfileState.newPost=action.postText
+               
+  //store.subscriber()
+//} 

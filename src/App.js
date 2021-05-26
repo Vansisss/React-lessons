@@ -13,7 +13,7 @@ import News from './Components/News/News';
 const App=(props)=> {
   
   let getProps = props
-  console.log(props)
+  
 
   return ( 
    
@@ -22,8 +22,8 @@ const App=(props)=> {
      <Header/>
      <Nav friends={getProps.users}/>
      <div className='Content'>
-     <Route path ='/profile'  render ={()=><Profile addChanges={getProps.addChanges} newPost={getProps.newPost} posts={getProps.posts} addPosts={props.addChanges}/>}/>
-     <Route path ='/dialogs' render ={()=><Dialogs messages={getProps.mesages} users={getProps.users}/>}/>
+     <Route path ='/profile'  render ={()=><Profile dispatch={getProps.dispatch} newPost={getProps.newPost} posts={getProps.posts} />}/>
+     <Route path ='/dialogs' render ={()=><Dialogs messageTxT={getProps.messageTxT} dispatch={getProps.dispatch} messages={getProps.mesages} users={getProps.users}/>}/>
      <Route path ='/news' component ={News}/>
      </div>
     </div>

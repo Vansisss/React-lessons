@@ -4,7 +4,7 @@ import classes from'./Profile.module.css'
 
 
 const Profile=(props)=>{
-  console.log(props)
+
    return(
     
     <div className={classes.SelfInfo}>
@@ -19,7 +19,7 @@ const Profile=(props)=>{
                             </div>
                            
       
-     <MyPosts addChanges={props.addChanges} newPost={props.newPost} posts={props.posts} addPosts={props.addPosts}/>
+     <MyPosts dispatch={props.dispatch} newPost={props.newPost} posts={props.posts} />
     </div>)
     }
     export default Profile;

@@ -5,7 +5,7 @@ import './UsersD.css'
 
 
 const UsersD=(props)=>{
-   console.log(props)
+   
    
 let UserArrayMapped=props.users.map(dialog=> <User id={dialog.id} name={dialog.name}/>)
    return(
