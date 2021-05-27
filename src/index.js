@@ -3,16 +3,17 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import store from './redux/state'
+import store from './redux/redux_store'
 import {addPosts,addChanges} from './redux/state'
 
 
 
 let renderEntireTree=()=>{
+  console.log(store.getState())
     ReactDOM.render(
       <React.StrictMode>
         
-        <App  messageTxT={store._state.DialogState.MessageTxT} dispatch={store.dispatch} posts={store._state.ProfileState.posts} newPost={store._state.ProfileState.newPost} users={store._state.DialogState.Users} mesages={store._state.DialogState.Messages} />
+        <App  messageTxT={store.getState().DialogState.MessageTxT} dispatch={store.dispatch} posts={store.getState().ProfileState.posts} newPost={store.getState().ProfileState.newPost} users={store.getState().DialogState.Users} mesages={store.getState().DialogState.Messages} />
       
        
       </React.StrictMode>,

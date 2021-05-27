@@ -1,5 +1,6 @@
 import React from 'react';
 import MyPosts from './My Posts/MyPosts';
+import MyPostsContainer from './My Posts/MyPostsContainer';
 import classes from'./Profile.module.css'
 
 
@@ -19,7 +20,7 @@ const Profile=(props)=>{
                             </div>
                            
       
-     <MyPosts dispatch={props.dispatch} newPost={props.newPost} posts={props.posts} />
+     <MyPostsContainer dispatch={props.dispatch} newPost={props.newPost} posts={props.posts} />
     </div>)
     }
     export default Profile;

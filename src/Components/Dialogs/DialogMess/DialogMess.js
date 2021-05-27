@@ -7,14 +7,15 @@ let MesRef=React.createRef()
 
 
 const DialogMess=(props)=>{
-console.log(props)
+
 let addMess=()=>{
-console.log(props.dispatch.MessageTxT)
-  return props.dispatch({type:'addMessage',MessageTxT: MesRef.current.value})
+
+  props.addNewMess(MesRef.current.value)
+  MesRef.current.value=''
  }
  let addChange=()=>{
-  console.log(props)
-   return props.dispatch({type:'addChange',text:(MesRef.current.value)})
+  
+   return props.addNewChange(MesRef.current.value)
  }
  let MessArrayMapped = props.hren.map(mess=> <Message message={mess.message} author={mess.author}/> )
  

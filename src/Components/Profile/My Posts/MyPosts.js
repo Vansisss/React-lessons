@@ -9,13 +9,13 @@ const MyPosts =(props)=> {
 let addPost=()=>{
   
   let text=newRef.current.value
-   props.dispatch({type:"addPosts"})
-   
+   props.addNewPost() 
+   newRef.current.value=''
 }
   let postsArray = props.posts.map(mess=> <Post post={mess.post} /> )
   let onpostChange =()=>{
-    props.dispatch({type:'addChanges', postText:newRef.current.value})
-    
+    props.onpostNewChange(newRef.current.value)
+   
 
   }
    return(
