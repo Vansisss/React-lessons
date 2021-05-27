@@ -1,21 +1,20 @@
-import React from 'react';
+
+import { connect } from 'react-redux';
 import MyPosts from './MyPosts';
 
 
 
-const MyPostsContainer =(props)=> {
 
-let addNewPost=()=>{  
-   props.dispatch({type:"addPosts"})
-   
-}
-  let onpostNewChange =(text)=>{
-    props.dispatch({type:'addChanges',postText:text})
-    
-
-  }
-   return(
-           <MyPosts addNewPost={addNewPost} onpostNewChange={onpostNewChange} posts={props.posts}/>
-    )
+    let mapStateToProps =(state)=>{
+      return{
+        posts:state.ProfileState.posts
+      }
     }
-    export default MyPostsContainer;
+    let mapStateToDispatch=(dispatch)=>{
+      return{
+        addNewPost:()=>{dispatch({type:"addPosts"})},
+        onpostNewChange:(text)=>{dispatch({type:'addChanges',postText:text})}
+      }
+    }
+    const SuperMyPostsContainer = connect(mapStateToProps,mapStateToDispatch)(MyPosts)
+    export default SuperMyPostsContainer;

@@ -1,23 +1,18 @@
 import React from 'react'
+import { connect } from 'react-redux'
 import DialogMess from './DialogMess'
 
 
+const mapStateToProps=(state)=>{return {
+  hren:state.DialogState.Messages
+}}
+const mapStateToDispatch=(dispatch)=>{
+  return{
+   addNewMess:(text)=>{dispatch({type:'addMessage',MessageTxT: text})},
+    addNewChange:(text)=>dispatch({type:'addChange',text:(text)})
+  }
+}
 
+    const SuperDialogMessContainer = connect(mapStateToProps,mapStateToDispatch)(DialogMess)
 
-const DialogMessContainer=(props)=>{
-
-let addNewMess=(text)=>{
-
-  return props.dispatch({type:'addMessage',MessageTxT: text})
- }
- let addNewChange=(text)=>{
- 
-   return props.dispatch({type:'addChange',text:(text)})
- }
- 
- 
-   return(
-          <DialogMess  hren={props.hren} addNewMess={addNewMess} addNewChange={addNewChange}/>
-    )
-    }
-    export default DialogMessContainer
+    export default SuperDialogMessContainer

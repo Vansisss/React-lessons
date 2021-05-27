@@ -14,6 +14,7 @@ let addPost=()=>{
 }
   let postsArray = props.posts.map(mess=> <Post post={mess.post} /> )
   let onpostChange =()=>{
+
     props.onpostNewChange(newRef.current.value)
    
 
@@ -21,7 +22,7 @@ let addPost=()=>{
    return(
 
       <div className='stage'>
-        <textarea onChange={onpostChange} ref={newRef} value={props.newPost}></textarea>
+        <textarea onChange={onpostChange} ref={newRef} ></textarea>
         <button onClick={addPost}>Add</button>
       {postsArray}
       </div>

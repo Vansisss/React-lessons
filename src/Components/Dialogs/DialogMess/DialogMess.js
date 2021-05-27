@@ -23,7 +23,7 @@ let addMess=()=>{
       <div className='DialogMess'>
          Messages
        {MessArrayMapped}
-       <textarea onChange={addChange} ref={MesRef} value={props.messageTxT} ></textarea>
+       <textarea onChange={addChange} ref={MesRef} ></textarea>
        <button onClick={addMess}>Add</button>
          </div>
     )

@@ -17,19 +17,21 @@ let initialState={
 }
 
 let DialogReduser =(state=initialState,action)=>{
-if(action.type==='addMessage'){
+   let CopyState= {...state}
+  if(action.type==='addMessage'){
     let newMessage={
-      id:6,author:'Ya',message : state.MessageTxT
+      id:6,author:'Ya',message : CopyState.MessageTxT
   
     }
-    state.Messages.push(newMessage)
-    state.MessageTxT=''
+    CopyState.Messages=[...CopyState.Messages]
+    CopyState.Messages.push(newMessage)
+    CopyState.MessageTxT=''
     
   }
   else if(action.type==='addChange'){
-    state.MessageTxT=action.text
+    CopyState.MessageTxT=action.text
    
   }
-  return state
+  return CopyState
 }
 export default DialogReduser

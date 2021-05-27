@@ -10,17 +10,22 @@ let initialState = {
 }
 
 let ProfileReduser=(state=initialState,action)=>{
-    if(action.type==='addPosts'){
-        let newpost ={
-          id:5,
-          post:state.newPost
-               }
-               state.posts.push(newpost)
-              state.newPost=''
-      }
-      else if(action.type==='addChanges'){
-       state.newPost=action.postText
-      } 
-      return state
+   let CopyState={...state}  
+   switch(action.type){
+     case "addPosts":
+      let newpost ={
+        id:5,
+        post:CopyState.newPost
+             }
+             CopyState.posts=[...state.posts]
+             CopyState.posts.push(newpost)
+            CopyState.newPost=''
+            return CopyState
+        case "addChanges": 
+       CopyState.newPost=action.postText
+       return CopyState
+   }
+  
+      return CopyState
 }
 export default ProfileReduser
