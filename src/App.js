@@ -6,7 +6,7 @@ import Profile from './Components/Profile/Profile';
 import Dialogs from './Components/Dialogs/Dialogs';
 import { BrowserRouter, Route } from 'react-router-dom';
 import News from './Components/News/News';
-
+import Users from './Components/Users/Users'
 
 
 const App=(props)=> {
@@ -23,6 +23,7 @@ const App=(props)=> {
      <div className='Content'>
      <Route path ='/profile'  render ={()=><Profile dispatch={getProps.dispatch} newPost={getProps.newPost} posts={getProps.posts} />}/>
      <Route path ='/dialogs' render ={()=><Dialogs messageTxT={getProps.messageTxT} dispatch={getProps.dispatch} messages={getProps.mesages} users={getProps.users}/>}/>
+     <Route path ='/users' render ={()=><Users />}/>
      <Route path ='/news' component ={News}/>
      </div>
     </div>

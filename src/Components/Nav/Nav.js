@@ -9,6 +9,7 @@ import classes from './Nav.module.css'
     <NavLink className={classes.item } activeClassName={classes.activebutton} to='/profile'>Profile</NavLink>  
     <NavLink className={classes.item} activeClassName={classes.activebutton} to='/dialogs'>Message</NavLink>  
     <NavLink className={classes.item} activeClassName={classes.activebutton} to='/news'>News</NavLink>
+    <NavLink className={classes.item} activeClassName={classes.activebutton} to='/users'>Users</NavLink>
             <div className={classes.friends}>Friends
            {UserNav}    
         </div></div>)
