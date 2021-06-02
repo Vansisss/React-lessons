@@ -15,7 +15,7 @@
 
 
 .Content{
-  
+  overflow: scroll;
   border: 1px black solid;
 }
 .Content img{

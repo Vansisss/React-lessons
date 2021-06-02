@@ -1,41 +1,57 @@
 import React from 'react';
 import User from '../User';
 import classes from'./MyUsers.module.css'
-
-let usersState={
-  newusers: [
-    {id:1,follow:true,name:"Ololosha",location:{cityName:'Moscow',countryName:"Russia"}},
-    {id:2,follow:false,name:"Leha",location:{cityName:'Kiev',countryName:"Ukraine"}},
-   {id:3,follow:true,name:"Nadya",location:{cityName:'Minsk',countryName:"BelaRussia"}},
-   {id:4,follow:false,name:"Renat",location:{cityName:'Ottava',countryName:"Canada"}},]
-  
- }
+import * as axios from 'axios'
+import Preloader from '../Preloader/Preloader';
+import { NavLink } from 'react-router-dom';
 
 const MyUsers =(props)=> {
-  let setUsers=()=>{props.setUsers(usersState.newusers)}
 
 
-
-
-let fun=(userID)=>{
-   props.unfollow(userID)
-}
+  let setUsers=(page)=>{ 
+  
+    props.isFatching(true)
+   
+    axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${page}`).then(res => {
+                 
+    props.setUsers(res.data.items)
+               
+               props.isFatching(false)
+      })
+      .catch((er)=>{console.error(er)})
+    };
+    let setPage=(a)=>{
+      props.setPages(a)
+   
+      console.log(props,a)
+      setUsers(a)
+    }
+    
   let UsersArray = props.users.map(u=><div key={u.id}>
+    <NavLink to={"/profile/"+u.id}>
      <img src='https://i.ytimg.com/vi/_b2n9WAv7wY/maxresdefault.jpg'></img>
+     </NavLink>
       <li>{u.name}</li>
-      <li>{u.location.cityName}</li>
-      <li>{u.location.countryName}</li>
-      {u.follow
+      
+      {u.followed
         ?<button onClick={()=>{props.unfollow(u.id)}}>Unfollow</button>
         :<button onClick={()=>{props.follow(u.id)}}>Follow</button>}
         
         
   </div>)
+    
   return(
 
       <div className='MyUsers'>
+         {props.isFatchings ?<Preloader/>:""}
+       <button onClick={()=>{setPage(1)}}>1</button>
+       <button onClick={()=>{setPage(2)}}>2</button>
+       <button onClick={()=>{setPage(3)}}>3</button>
+       <button onClick={()=>{setPage(4)}}>4</button>
+
+      
         {UsersArray}
-        <button onClick={setUsers}>Set Users</button>
+      
       </div>
     )
     }

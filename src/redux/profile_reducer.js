@@ -6,7 +6,8 @@ let initialState = {
               {id:2,post:"sbbbbbbbbbbbbbbbbb"},
               {id:3,post:"ccccccccccccccc"},
               {id:4,post:"ddddddddddddddddd"}
-            ]
+            ],
+      profile:{ photos:{large:'',small:""}}
 }
 
 let ProfileReduser=(state=initialState,action)=>{
@@ -24,8 +25,13 @@ let ProfileReduser=(state=initialState,action)=>{
         case "addChanges": 
        CopyState.newPost=action.postText
        return CopyState
-   }
-  
-      return CopyState
+    
+      case "SetProfile":
+        
+          CopyState.profile=action.profile
+         
+        return CopyState
+      }
+      return state
 }
 export default ProfileReduser

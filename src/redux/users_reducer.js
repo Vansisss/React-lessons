@@ -1,9 +1,11 @@
 
 let initialState = {
       users : [
-              
-             
-            ]
+                        
+            ],
+      CountofPages:10,
+      page:1,
+      isFatchings:false
 }
 
 
@@ -14,7 +16,7 @@ let UsersReduser=(state=initialState,action)=>{
         return{
           ...state,users: state.users.map(u=>{
             if(u.id===action.userID)
-            {return{...u,follow:true}}
+            {return{...u,followed:true}}
             return u
           })
         }
@@ -23,15 +25,26 @@ let UsersReduser=(state=initialState,action)=>{
           return{
             ...state,users: state.users.map(u=>{
               if(u.id===action.userID)
-              {return{...u,follow:false}}
+              {return{...u,followed:false}}
               return u
             })
           }
         case "setUsers":
         
         return{
-          users: [].concat(state.users,action.newUsers)
+          ...state.users=[],
+          ...state,users: [].concat(state.users,action.newUsers)
           }
+
+          case "setPage":
+            return{
+                  
+             ...state,page:action.newPage
+              }
+        case "isFatching":
+        return {
+          ...state,isFatchings:action.isFatch
+        }
    }  
      return state
 }

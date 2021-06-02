@@ -7,6 +7,7 @@ import Dialogs from './Components/Dialogs/Dialogs';
 import { BrowserRouter, Route } from 'react-router-dom';
 import News from './Components/News/News';
 import Users from './Components/Users/Users'
+import ProfileContainer from './Components/Profile/ProfileContainer';
 
 
 const App=(props)=> {
@@ -21,7 +22,7 @@ const App=(props)=> {
      <Header/>
      <Nav friends={getProps.users}/>
      <div className='Content'>
-     <Route path ='/profile'  render ={()=><Profile dispatch={getProps.dispatch} newPost={getProps.newPost} posts={getProps.posts} />}/>
+     <Route path ='/profile'  render ={()=><ProfileContainer dispatch={getProps.dispatch} newPost={getProps.newPost} posts={getProps.posts} />}/>
      <Route path ='/dialogs' render ={()=><Dialogs messageTxT={getProps.messageTxT} dispatch={getProps.dispatch} messages={getProps.mesages} users={getProps.users}/>}/>
      <Route path ='/users' render ={()=><Users />}/>
      <Route path ='/news' component ={News}/>
