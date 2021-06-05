@@ -27,7 +27,7 @@ const MyUsers =(props)=> {
       setUsers(a)
     }
     
-  let UsersArray = props.users.map(u=><div key={u.id}>
+  let UsersArray = props.users.map(u=><div >
     <NavLink to={"/profile/"+u.id}>
      <img src='https://i.ytimg.com/vi/_b2n9WAv7wY/maxresdefault.jpg'></img>
      </NavLink>

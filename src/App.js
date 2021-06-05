@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import Header from './Components/Header/Header';
+import HeaderContainer from './Components/Header/HeaderContainer';
 import Nav from './Components/Nav/Nav';
 import Profile from './Components/Profile/Profile';
 import Dialogs from './Components/Dialogs/Dialogs';
@@ -19,10 +19,10 @@ const App=(props)=> {
    
     <BrowserRouter>
     <div className="App">
-     <Header/>
+     <HeaderContainer/>
      <Nav friends={getProps.users}/>
      <div className='Content'>
-     <Route path ='/profile'  render ={()=><ProfileContainer dispatch={getProps.dispatch} newPost={getProps.newPost} posts={getProps.posts} />}/>
+     <Route path ='/profile/:userId'  render ={()=><ProfileContainer dispatch={getProps.dispatch} newPost={getProps.newPost} posts={getProps.posts} />}/>
      <Route path ='/dialogs' render ={()=><Dialogs messageTxT={getProps.messageTxT} dispatch={getProps.dispatch} messages={getProps.mesages} users={getProps.users}/>}/>
      <Route path ='/users' render ={()=><Users />}/>
      <Route path ='/news' component ={News}/>

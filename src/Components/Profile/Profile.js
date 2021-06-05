@@ -7,9 +7,10 @@ import * as axios from 'axios'
 
 
 const Profile=(props)=>{
-
+console.log(props)
+let userID =props.match.params.userId
   useEffect(()=>{
-    axios.get('https://social-network.samuraijs.com/api/1.0/profile/2').then((resp) => {
+    axios.get('https://social-network.samuraijs.com/api/1.0/profile/'+userID).then((resp) => {
         props.SetProfile(resp.data)
     });
   },[])

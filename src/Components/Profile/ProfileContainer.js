@@ -1,13 +1,15 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router';
 import Profile from './Profile'
-import * as axios from 'axios'
+
 
 
   let mapStateToProps =(state)=>{
     return{
       profile:state.ProfileState.profile
      
+
     }
   }
   let mapStateToDispatch=(dispatch)=>{
@@ -16,7 +18,9 @@ import * as axios from 'axios'
    
     }
   }
-  const SuperProfileContainer = connect(mapStateToProps,mapStateToDispatch)(Profile)
+
+  let ProfileCont=withRouter(Profile)
+  const SuperProfileContainer = connect(mapStateToProps,mapStateToDispatch)(ProfileCont)
   
     
     export default SuperProfileContainer;
