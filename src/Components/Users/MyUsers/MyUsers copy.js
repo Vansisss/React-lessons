@@ -4,24 +4,25 @@ import classes from'./MyUsers.module.css'
 import * as axios from 'axios'
 import Preloader from '../Preloader/Preloader';
 import { NavLink } from 'react-router-dom';
-import { deleteFollow, getUsers, postFollow } from '../../../api/api';
+
+const MyUsers =(props)=> {
 
 
-
- const MyUsers =(props)=> {
-  
-
-  let setUsers=async(page)=>{ 
+  let setUsers=(page)=>{ 
   
     props.isFatching(true)
-    let result = await getUsers()
-    props.setUsers(result)
+   
+    axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${page}`,{withCredentials:true}).then(res => {
+                 
+    props.setUsers(res.data.items)
+               
                props.isFatching(false)
-      }
-    
-    ;
+      })
+      .catch((er)=>{console.error(er)})
+    };
     let setPage=(a)=>{
       props.setPages(a)
+   
       console.log(props,a)
       setUsers(a) 
     }
@@ -34,12 +35,33 @@ import { deleteFollow, getUsers, postFollow } from '../../../api/api';
       
       {u.followed
         ?<button onClick={()=>{
-          deleteFollow(u.id)
-          props.unfollow(u.id)
+          axios.delete(`https://social-network.samuraijs.com/api/1.0/follow/${u.id}`,
+          {withCredentials:true,
+          headers:{
+            "API-KEY":"ee99ed65-682d-46f1-957a-3bad477b92d0"
+          }}).then(res => {
+                 
+            if(res.data.resultCode==0){
+              props.unfollow(u.id)
+            }
+               
+      })
+      .catch((er)=>{console.error(er)})
         }}>Unfollow</button>
         :<button onClick={()=>{
-          postFollow(u.id)
-          props.follow(u.id)
+          axios.post(`https://social-network.samuraijs.com/api/1.0/follow/${u.id}`,{},
+          {withCredentials:true,
+          headers:{
+            "API-KEY":"ee99ed65-682d-46f1-957a-3bad477b92d0"
+          }}).then(res => {
+                 
+            if(res.data.resultCode==0){
+              props.follow(u.id)
+            }
+               
+      })
+      .catch((er)=>{console.error(er)})
+          
           
           }}>Follow</button>}
         
