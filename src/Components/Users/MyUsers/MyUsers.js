@@ -4,26 +4,16 @@ import classes from'./MyUsers.module.css'
 import * as axios from 'axios'
 import Preloader from '../Preloader/Preloader';
 import { NavLink } from 'react-router-dom';
-import { deleteFollow, getUsers, postFollow } from '../../../api/api';
+import { deleteFollow, postFollow } from '../../../api/api';
+
 
 
 
  const MyUsers =(props)=> {
-  
-
-  let setUsers=async(page)=>{ 
-  
-    props.isFatching(true)
-    let result = await getUsers()
-    props.setUsers(result)
-               props.isFatching(false)
-      }
-    
-    ;
     let setPage=(a)=>{
       props.setPages(a)
       console.log(props,a)
-      setUsers(a) 
+      props.getUsersThunk(a) 
     }
     
   let UsersArray = props.users.map(u=><div >
@@ -34,13 +24,10 @@ import { deleteFollow, getUsers, postFollow } from '../../../api/api';
       
       {u.followed
         ?<button onClick={()=>{
-          deleteFollow(u.id)
-          props.unfollow(u.id)
+         props.deleteFollowThunk(u.id)
         }}>Unfollow</button>
         :<button onClick={()=>{
-          postFollow(u.id)
-          props.follow(u.id)
-          
+          props.postFollowThunk(u.id)
           }}>Follow</button>}
         
         

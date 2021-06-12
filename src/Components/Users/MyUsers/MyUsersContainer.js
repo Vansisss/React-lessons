@@ -1,5 +1,6 @@
 
 import { connect } from 'react-redux';
+import { follow, getUsersThunk, isFatching, setPages, setUsers, unfollow,postFollowThunk,deleteFollowThunk } from '../../../redux/users_reducer';
 import MyUsers from'./MyUsers'
 
 
@@ -13,15 +14,7 @@ import MyUsers from'./MyUsers'
         isFatchings:state.UsersState.isFatchings
       }
     }
-    let mapStateToDispatch=(dispatch)=>{
-      return{
-        follow:(userID)=>{dispatch({type:"Follow",userID})},
-        unfollow:(userID)=>{dispatch({type:"Unfollow",userID})},
-        setUsers:(newUsers)=>{dispatch({type:'setUsers',newUsers})},
-        setPages:(newPage)=>{dispatch({type:'setPage',newPage})},
-        isFatching:(isFatch)=>{dispatch({type:'isFatching',isFatch})}
-     
-      }
-    }
-    const SuperMyUsersContainer = connect(mapStateToProps,mapStateToDispatch)(MyUsers)
+   
+    
+    const SuperMyUsersContainer = connect(mapStateToProps,{unfollow,follow,setPages,setUsers,getUsersThunk,isFatching,postFollowThunk,deleteFollowThunk})(MyUsers)
     export default SuperMyUsersContainer; 

@@ -1,7 +1,8 @@
 import * as axios from 'axios'
+
+
 export const getUsers=(page=1)=>{
 return axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${page}`,{withCredentials:true}).then(res => {
-debugger
                 
    
 return res.data.items
@@ -15,7 +16,7 @@ export const postFollow=(id)=>{
     headers:{
       "API-KEY":"ee99ed65-682d-46f1-957a-3bad477b92d0"
     }}).then(res => {
-           
+           debugger
       if(res.data.resultCode==0){
        return 1
       }
@@ -37,3 +38,12 @@ headers:{
      
 })
 .catch((er)=>{console.error(er)})}
+
+export let getlogged=()=>{
+ 
+return axios.get('https://social-network.samuraijs.com/api/1.0/auth/me',{withCredentials:true}).then(res => {
+ 
+  return res.data.data
+  
+  })
+}

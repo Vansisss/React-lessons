@@ -1,3 +1,4 @@
+import { getlogged } from "../api/api"
 
 let initialState = {
   
@@ -27,3 +28,12 @@ let LoginReduser=(state=initialState,action)=>{
      return state
 }
 export default LoginReduser
+
+
+export let loginThunk=()=>async(dispatch)=>{
+  debugger
+  let logdata=await getlogged()
+ 
+  dispatch({type:'setLoginData', logdata})
+
+}

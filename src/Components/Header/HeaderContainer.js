@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
-import HeaderAjax from './HeaderAjax';
+import Header from './Header';
 import {connect} from 'react-redux'
+import{loginThunk} from '../../redux/login_reducer';
 
 
 
@@ -10,15 +11,10 @@ let mapStateToProps =(state)=>{
     LoginData:state.LoginState.statedata
   }
 }
-let mapStateToDispatch=(dispatch)=>{
-  return{
-   
-    SetLoginData:(logdata)=>{dispatch({type:"setLoginData",logdata})}
-  }
-}
 
 
-const SuperLoginContainer = connect(mapStateToProps,mapStateToDispatch)(HeaderAjax)
+
+const SuperLoginContainer = connect(mapStateToProps,{loginThunk})(Header)
 
   
   export default SuperLoginContainer;
