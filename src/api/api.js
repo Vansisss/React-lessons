@@ -43,7 +43,12 @@ export let getlogged=()=>{
  
 return axios.get('https://social-network.samuraijs.com/api/1.0/auth/me',{withCredentials:true}).then(res => {
  
-  return res.data.data
+  return res.data
   
   })
 }
+export let getUserProfile=(id)=>{
+  debugger
+return axios.get('https://social-network.samuraijs.com/api/1.0/profile/'+id).then((resp) => {
+return resp.data
+})}

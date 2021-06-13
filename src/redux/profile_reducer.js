@@ -1,3 +1,4 @@
+import { getUserProfile } from "../api/api"
 
 let initialState = {
     newPost:"It samur",
@@ -35,3 +36,9 @@ let ProfileReduser=(state=initialState,action)=>{
       return state
 }
 export default ProfileReduser
+
+export const getUserProfileThunk=(id)=>async(dispatch)=>{
+  debugger
+let profile =await getUserProfile(id)
+  dispatch({type:'SetProfile',profile})
+}

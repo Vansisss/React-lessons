@@ -8,7 +8,8 @@ import{loginThunk} from '../../redux/login_reducer';
 
 let mapStateToProps =(state)=>{
   return{
-    LoginData:state.LoginState.statedata
+    LoginData:state.LoginState.statedata,
+    Log:state.LoginState.logged
   }
 }
 

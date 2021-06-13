@@ -18,10 +18,11 @@ let LoginReduser=(state=initialState,action)=>{
   
    switch(action.type){
      case "setLoginData":
-      
+      state.logged=true
        
         return{
           ...state,statedata:action.logdata    
+          
         }
   
    }  
@@ -31,9 +32,10 @@ export default LoginReduser
 
 
 export let loginThunk=()=>async(dispatch)=>{
-  debugger
-  let logdata=await getlogged()
- 
+  
+  let logdata1=await getlogged()
+  if(logdata1.resultCode===0){
+    let logdata=logdata1.data
   dispatch({type:'setLoginData', logdata})
-
+  }
 }

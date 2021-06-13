@@ -13,7 +13,7 @@ import { Provider } from 'react-redux';
     ReactDOM.render(
       <React.StrictMode>
        <Provider store={store}>
-        <App  messageTxT={store.getState().DialogState.MessageTxT} dispatch={store.dispatch} posts={store.getState().ProfileState.posts} newPost={store.getState().ProfileState.newPost} users={store.getState().DialogState.Users} mesages={store.getState().DialogState.Messages} />
+        <App LogState={store.getState().LoginState} messageTxT={store.getState().DialogState.MessageTxT} dispatch={store.dispatch} posts={store.getState().ProfileState.posts} newPost={store.getState().ProfileState.newPost} users={store.getState().DialogState.Users} mesages={store.getState().DialogState.Messages} />
        
         </Provider>
       </React.StrictMode>,

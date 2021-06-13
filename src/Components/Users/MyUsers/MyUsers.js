@@ -5,7 +5,7 @@ import * as axios from 'axios'
 import Preloader from '../Preloader/Preloader';
 import { NavLink } from 'react-router-dom';
 import { deleteFollow, postFollow } from '../../../api/api';
-
+import { Redirect } from 'react-router';
 
 
 
