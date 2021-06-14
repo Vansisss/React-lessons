@@ -1,5 +1,6 @@
 
 import { connect } from 'react-redux';
+import { compose } from 'redux';
 import { withLogRedirect } from '../../../hoc/withLogRedirectComponent';
 import { follow, getUsersThunk, isFatching, setPages, setUsers, unfollow,postFollowThunk,deleteFollowThunk } from '../../../redux/users_reducer';
 import MyUsers from'./MyUsers'
@@ -16,7 +17,11 @@ import MyUsers from'./MyUsers'
          
       }
     }
-   let withLogMyUsers=withLogRedirect(MyUsers)
     
-    const SuperMyUsersContainer = connect(mapStateToProps,{unfollow,follow,setPages,setUsers,getUsersThunk,isFatching,postFollowThunk,deleteFollowThunk})(withLogMyUsers)
-    export default SuperMyUsersContainer; 
+ 
+    
+    
+    export default compose(
+      connect(mapStateToProps,{unfollow,follow,setPages,setUsers,getUsersThunk,isFatching,postFollowThunk,deleteFollowThunk}),
+      withLogRedirect
+    )(MyUsers)

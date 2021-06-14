@@ -2,16 +2,17 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
 import Profile from './Profile'
-import {getUserProfileThunk} from '../../redux/profile_reducer'
+import {getUserProfileThunk,statusInEdit,statusChange} from '../../redux/profile_reducer'
 import { withLogRedirect } from '../../hoc/withLogRedirectComponent';
+import { compose } from 'redux';
 
 
   let mapStateToProps =(state)=>{
     
     return{
       profile:state.ProfileState.profile,
-    
-      
+      status:state.ProfileState.status,
+      inEdit:state.ProfileState.statusOnEdit
 
     }
   }
@@ -21,11 +22,7 @@ import { withLogRedirect } from '../../hoc/withLogRedirectComponent';
    
     }
   }*/
-
-
-  let ProfileCont=withRouter(Profile)
-  let withLogProfileCont=withLogRedirect(ProfileCont)
-  const SuperProfileContainer = connect(mapStateToProps,{getUserProfileThunk})(withLogProfileCont)
-  
-    
-    export default SuperProfileContainer;
+    export default compose(connect(mapStateToProps,{getUserProfileThunk,statusInEdit,statusChange}),
+    withLogRedirect,
+    withRouter
+  )(Profile)
