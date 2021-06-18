@@ -6,7 +6,7 @@ import classes from './Nav.module.css'
        
         let UserNav=props.friends.map(friend=> <User name={friend.name}/>)
         return(<div className={classes.NavBar}>
-    <NavLink className={classes.item } activeClassName={classes.activebutton} to='/profile/2'>Profile</NavLink>  
+    <NavLink className={classes.item } activeClassName={classes.activebutton} to='/profile/17422'>Profile</NavLink>  
     <NavLink className={classes.item} activeClassName={classes.activebutton} to='/dialogs'>Message</NavLink>  
     <NavLink className={classes.item} activeClassName={classes.activebutton} to='/news'>News</NavLink>
     <NavLink className={classes.item} activeClassName={classes.activebutton} to='/users'>Users</NavLink>

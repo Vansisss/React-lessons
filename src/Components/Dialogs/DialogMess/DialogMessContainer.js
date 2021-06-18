@@ -8,7 +8,7 @@ const mapStateToProps=(state)=>{return {
 }}
 const mapStateToDispatch=(dispatch)=>{
   return{
-   addNewMess:(text)=>{dispatch({type:'addMessage',MessageTxT: text})},
+   addNewMess:(message)=>{dispatch({type:'addMessage',message})},
     addNewChange:(text)=>dispatch({type:'addChange',text:(text)})
   }
 }

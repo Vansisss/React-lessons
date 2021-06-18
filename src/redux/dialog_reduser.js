@@ -20,7 +20,7 @@ let DialogReduser =(state=initialState,action)=>{
    let CopyState= {...state}
   if(action.type==='addMessage'){
     let newMessage={
-      id:6,author:'Ya',message : CopyState.MessageTxT
+      id:6,author:'Ya',message : action.message
   
     }
     CopyState.Messages=[...CopyState.Messages]

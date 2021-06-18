@@ -8,7 +8,7 @@ import { BrowserRouter, Route } from 'react-router-dom';
 import News from './Components/News/News';
 import Users from './Components/Users/Users'
 import ProfileContainer from './Components/Profile/ProfileContainer';
-import Login from './Components/Login/Login'
+import {SuperPuperLoginContainer} from './Components/Header/HeaderContainer'
 
 
 const App=(props)=> {
@@ -23,7 +23,7 @@ const App=(props)=> {
      <HeaderContainer/>
      <Nav friends={getProps.users}/>
      <div className='Content'>
-     <Route path ='/login' render ={()=><Login />}/>
+     <Route path ='/login' render ={()=><SuperPuperLoginContainer />}/>
      <Route path ='/profile/:userId'  render ={()=><ProfileContainer dispatch={getProps.dispatch} newPost={getProps.newPost} posts={getProps.posts} />}/>
      <Route path ='/dialogs' render ={()=><Dialogs messageTxT={getProps.messageTxT} dispatch={getProps.dispatch} messages={getProps.mesages} users={getProps.users}/>}/>
      <Route path ='/users' render ={()=><Users />}/>

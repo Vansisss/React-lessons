@@ -1,4 +1,4 @@
-import { getUserProfile } from "../api/api"
+import { getUserProfile,getProfileStatus,putProfileStatus } from "../api/api"
 
 let initialState = {
   status:'My Status',
@@ -38,6 +38,11 @@ let ProfileReduser=(state=initialState,action)=>{
           CopyState.profile=action.profile
          
         return CopyState
+        case "SetProfileStatus":
+        
+          CopyState.status=action.status
+         
+        return CopyState
         case "statusInEditChange":
           if(CopyState.statusOnEdit===false) {
             CopyState.statusOnEdit=true
@@ -53,10 +58,19 @@ let ProfileReduser=(state=initialState,action)=>{
 export default ProfileReduser
 
 export const getUserProfileThunk=(id)=>async(dispatch)=>{
-  debugger
+
 let profile =await getUserProfile(id)
   dispatch({type:'SetProfile',profile})
 }
+export const getUserProfileStatusThunk=(id)=>async(dispatch)=>{
 
+let status =await getProfileStatus(id)
+  dispatch({type:'SetProfileStatus',status})
+}
+export const putUsrerProfileStatusThunk=(status)=>(dispatch)=>{
+debugger
+  putProfileStatus(status)
+  dispatch({type:'SetProfileStatus',status})
+}
 export const statusInEdit=(newPage)=>({type:'statusInEditChange',newPage})
 export const statusChange=(changes)=>({type:'statusChange',changes})

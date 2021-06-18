@@ -1,7 +1,8 @@
 import React, { useEffect } from 'react';
 import Header from './Header';
 import {connect} from 'react-redux'
-import{loginThunk} from '../../redux/login_reducer';
+import{loginThunk,logOut,changelog,postloginThunk} from '../../redux/login_reducer';
+import Login from '../Login/Login';
 
 
 
@@ -15,7 +16,8 @@ let mapStateToProps =(state)=>{
 
 
 
-const SuperLoginContainer = connect(mapStateToProps,{loginThunk})(Header)
+const SuperLoginContainer = connect(mapStateToProps,{loginThunk,logOut,changelog,postloginThunk})(Header)
 
+export const SuperPuperLoginContainer = connect(mapStateToProps,{loginThunk,logOut,changelog,postloginThunk})(Login)
   
   export default SuperLoginContainer;

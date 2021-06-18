@@ -4,10 +4,17 @@ import classes from'./Header.module.css'
 const Header =(props)=>{
   if(props.LoginData.id==='')
 {props.loginThunk()}
-  
+let logOuting =()=>{
+  debugger
+  props.changelog()
+  props.logOut()
+ 
+}
+
 console.log(props)
 let logginform=()=>{
-  if(props.Log===true) return <div className={classes.Login}>Hello :{props.LoginData.login} </div>
+  if(props.Log===true) return <div className={classes.Login}>Hello :{props.LoginData.login}
+  <button onClick={logOuting}>Logout</button> </div>
   else return <NavLink to='/login'>Login</NavLink>
 }
 return (

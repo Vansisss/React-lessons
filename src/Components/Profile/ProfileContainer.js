@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
 import Profile from './Profile'
-import {getUserProfileThunk,statusInEdit,statusChange} from '../../redux/profile_reducer'
+import {getUserProfileThunk,statusInEdit,statusChange,getUserProfileStatusThunk,putUsrerProfileStatusThunk} from '../../redux/profile_reducer'
 import { withLogRedirect } from '../../hoc/withLogRedirectComponent';
 import { compose } from 'redux';
 
@@ -22,7 +22,7 @@ import { compose } from 'redux';
    
     }
   }*/
-    export default compose(connect(mapStateToProps,{getUserProfileThunk,statusInEdit,statusChange}),
+    export default compose(connect(mapStateToProps,{getUserProfileThunk,statusInEdit,statusChange,getUserProfileStatusThunk,putUsrerProfileStatusThunk}),
     withLogRedirect,
     withRouter
   )(Profile)
